@@ -1,30 +1,31 @@
 const express = require('express')
+const Controller = require('../controllers/tireController')
 
 const router = express.Router()
 
 // GET all tires
 router.get('/', (req, res) => {
-  res.json({mssg: 'GET all tires'})
+  res.json(Controller.getTire())
 })
 
 // GET a single tire
 router.get('/:id', (req, res) => {
-  res.json({mssg: 'GET a single tire'})
+  res.json(Controller.getTires())
 })
 
 // POST a new tire
 router.post('/', (req, res) => {
-  res.json({mssg: 'POST a new tire'})
+  res.json(Controller.createTire())
 })
 
 // DELETE a tire
 router.delete('/:id', (req, res) => {
-  res.json({mssg: 'DELETE a tire'})
+  res.json(Controller.deleteTire())
 })
 
 // UPDATE a tire
 router.patch('/:id', (req, res) => {
-  res.json({mssg: 'UPDATE a tire'})
+  res.json(Controller.updateTire())
 })
 
 module.exports = router
