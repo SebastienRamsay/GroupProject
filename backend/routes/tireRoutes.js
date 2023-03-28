@@ -1,31 +1,28 @@
-const express = require('express')
-const Controller = require('../controllers/tireController')
+import express from 'express';
+import {
+  getTires,
+  getTire,
+  createTire,
+  deleteTire,
+  updateTire
+} from '../controllers/tireController.js';
 
-const router = express.Router()
+
+const tireRoutes = express.Router()
 
 // GET all tires
-router.get('/', (req, res) => {
-  res.json(Controller.getTires)
-})
+tireRoutes.get('/', getTires)
 
 // GET a single tire
-router.get('/:id', (req, res) => {
-  res.json(Controller.getTire)
-})
+tireRoutes.get('/:id', getTire)
 
 // POST a new tire
-router.post('/', (req, res) => {
-  res.json(Controller.createTire)
-})
+tireRoutes.post('/', createTire)
 
 // DELETE a tire
-router.delete('/:id', (req, res) => {
-  res.json(Controller.deleteTire)
-})
+tireRoutes.delete('/:id', deleteTire)
 
 // UPDATE a tire
-router.patch('/:id', (req, res) => {
-  res.json(Controller.updateTire)
-})
+tireRoutes.patch('/:id', updateTire)
 
-module.exports = router
+export default tireRoutes

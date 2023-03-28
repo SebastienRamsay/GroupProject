@@ -1,8 +1,10 @@
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require('express')
-const mongoose = require('mongoose')
-const tireRoutes = require('./routes/tireRoutes')
+import express from 'express';
+import mongoose from 'mongoose';
+import tireRoutes from './routes/tireRoutes.js';
+
 
 // express app
 const app = express()
