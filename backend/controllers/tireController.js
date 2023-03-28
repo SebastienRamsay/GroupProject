@@ -1,5 +1,6 @@
-const Tire = require('../models/tireModel')
-const mongoose = require('mongoose')
+import Tire from '../models/tireModel.js';
+import mongoose from 'mongoose';
+
 
 // get all tires
 const getTires = async (req, res) => {
@@ -27,11 +28,11 @@ const getTire = async (req, res) => {
 
 // create a new tire
 const createTire = async (req, res) => {
-  const {brand, model, size, price, isAvailable} = req.body
-
+  const {brand, treadType, size, price, isAvailable} = req.body
+  console.log("tireController Post")
   // add to the database
   try {
-    const tire = await Tire.create({brand, model, size, price, isAvailable})
+    const tire = await Tire.create({brand, treadType, size, price, isAvailable})
     res.status(200).json(tire)
   } catch (error) {
     res.status(400).json({ error: error.message })
@@ -74,7 +75,7 @@ const updateTire = async (req, res) => {
   res.status(200).json(tire)
 }
 
-module.exports = {
+export {
   getTires,
   getTire,
   createTire,

@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 
 const tireSchema = new mongoose.Schema({
   brand: {
     type: String,
     required: true
   },
-  model: {
+  treadType: {
     type: String,
     required: true
   },
@@ -23,4 +24,5 @@ const tireSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Tire', tireSchema);
+const Tire = mongoose.model('Tire', tireSchema)
+export default Tire
