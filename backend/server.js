@@ -20,13 +20,13 @@ app.use((req, res, next) => {
 // routes
 app.use('/tires', tireRoutes)
 
+console.log('connecting to database')
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('connected to database')
     // listen to port
     app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
+      console.log('connected to database and listening for requests on port', process.env.PORT)
     })
   })
   .catch((err) => {
